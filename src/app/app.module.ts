@@ -31,6 +31,7 @@ import { ProductFormComponent } from './admin/product-form/product-form.componen
 import { ShopFilterComponent } from './shop/shop-filter/shop-filter.component';
 import { ProductCardComponent } from './product-card/product-card.component';
 import { AboutComponent } from './about/about.component';
+import { ComingSoonComponent } from './coming-soon/coming-soon.component';
 
 
 @NgModule({
@@ -50,6 +51,7 @@ import { AboutComponent } from './about/about.component';
     ShopFilterComponent,
     ProductCardComponent,
     AboutComponent,
+    ComingSoonComponent,
   ],
   imports: [
     BrowserModule,
@@ -62,19 +64,31 @@ import { AboutComponent } from './about/about.component';
     RouterModule.forRoot([
       {
         path: '',
-        component: HomeComponent
+        component: ComingSoonComponent
       },
+      // {
+      //     path: '',
+      //     component: HomeComponent
+      // },
       {
         path: 'about',
-        component: AboutComponent
+        component: AboutComponent,
+          // remove later
+        canActivate: [AuthGuard, AdminAuthGuard]
+
       },
       {
         path: 'shop',
-        component: ShopComponent
+        component: ShopComponent,
+          // remove later
+        canActivate: [AuthGuard, AdminAuthGuard]
+
       },
       {
         path: 'shopping-cart',
-        component: ShoppingCartComponent
+        component: ShoppingCartComponent,
+          // remove later
+        canActivate: [AuthGuard, AdminAuthGuard]
       },
       {
         path: 'login',
@@ -83,16 +97,19 @@ import { AboutComponent } from './about/about.component';
       {
         path: 'check-out',
         component: CheckOutComponent,
-        canActivate: [AuthGuard]
+          // remove adminguard later
+        canActivate: [AuthGuard, AdminAuthGuard]
       },
       {
         path: 'order-success',
         component: OrderSuccessComponent,
-        canActivate: [AuthGuard]
+          // remove adminguard later
+        canActivate: [AuthGuard, AdminAuthGuard]
       },
       {
         path: 'my/orders',
         component: MyOrdersComponent,
+          // remove adminguard later
         canActivate: [AuthGuard]
       },
       {

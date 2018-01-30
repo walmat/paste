@@ -30,10 +30,7 @@ export class ShopComponent implements OnInit {
         this.filteredProducts = (this.category) ?
           this.shop.filter(p => p.category === this.category) :
           this.shop;
-
       });
-
     });
-
   }
 }

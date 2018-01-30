@@ -6,6 +6,10 @@ export class ShopService {
 
   constructor(private db: AngularFireDatabase) { }
 
+  find(id) {
+    return this.db.object(`products/${id}`).snapshotChanges();
+  }
+
   create(product) {
     return this.db.list('/products').push(product);
   }

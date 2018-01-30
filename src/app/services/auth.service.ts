@@ -22,11 +22,7 @@ export class AuthService {
   get appUser() {
     return this.afAuth.authState.map(user => {
       if (user) {
-        if (user.email === 'matthew.wallt@gmail.com') {
-          return true;
-        } else {
-          return false;
-        }
+        return (user.email === 'matthew.wallt@gmail.com');
       } else {
         return null;
       }

@@ -2,6 +2,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { ShopService } from '../../services/shop.service';
 import { Component } from '@angular/core';
 import { CategoryService } from '../../services/category.service';
+import {Product} from '../../interfaces/product';
 
 @Component({
   selector: 'app-product-form',
@@ -11,8 +12,7 @@ import { CategoryService } from '../../services/category.service';
 export class ProductFormComponent {
 
   categories;
-
-  public product = {};
+  public product: Product;
   private productId;
 
   constructor(
