@@ -8,7 +8,7 @@ export class AdminAuthGuard implements CanActivate {
   constructor(private auth: AuthService) { }
   canActivate() {
     return this.auth.afAuth.authState.map(user => {
-      if (user.email === 'matthew.wallt@gmail.com') {
+      if (user.email === 'matthew.wallt@gmail.com' || user.email === 'dhanwadas@gmail.com') {
         return true;
       } else {
         return false;

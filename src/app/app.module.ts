@@ -33,7 +33,7 @@ import { ProductCardComponent } from './product-card/product-card.component';
 import { AboutComponent } from './about/about.component';
 import { ComingSoonComponent } from './coming-soon/coming-soon.component';
 import { SplashComponent } from './splash/splash.component';
-import { QueueService } from './services/queue.service';
+import { SplashService } from './services/splash.service';
 
 @NgModule({
   declarations: [
@@ -83,12 +83,11 @@ import { QueueService } from './services/queue.service';
       {
         path: 'splash',
         component: SplashComponent,
-        canActivate: [AuthGuard, AdminAuthGuard]
+        canActivate: [AuthGuard]
       },
       {
         path: 'shopping-cart',
         component: ShoppingCartComponent,
-          // remove later
       },
       {
         path: 'login',
@@ -97,19 +96,16 @@ import { QueueService } from './services/queue.service';
       {
         path: 'check-out',
         component: CheckOutComponent,
-          // remove adminguard later
         canActivate: [AuthGuard]
       },
       {
         path: 'order-success',
         component: OrderSuccessComponent,
-          // remove adminguard later
         canActivate: [AuthGuard]
       },
       {
         path: 'my/orders',
         component: MyOrdersComponent,
-          // remove adminguard later
         canActivate: [AuthGuard]
       },
       {
@@ -142,7 +138,7 @@ import { QueueService } from './services/queue.service';
     CategoryService,
     ShopService,
     ShoppingCartService,
-    QueueService
+    SplashService
   ],
   bootstrap: [AppComponent]
 })

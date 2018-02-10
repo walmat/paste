@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import { QueueService } from '../services/queue.service';
+import {SplashService} from '../services/splash.service';
+import {AuthService} from '../services/auth.service';
 
 @Component({
   selector: 'app-splash',
@@ -8,9 +9,9 @@ import { QueueService } from '../services/queue.service';
 })
 export class SplashComponent implements OnInit {
 
-    constructor(private queue: QueueService) { }
+    constructor(private splash: SplashService) {}
 
     ngOnInit() {
-        this.queue.push();
+        this.splash.add();
     }
 }
