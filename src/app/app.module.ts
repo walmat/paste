@@ -32,7 +32,8 @@ import { ShopFilterComponent } from './shop/shop-filter/shop-filter.component';
 import { ProductCardComponent } from './product-card/product-card.component';
 import { AboutComponent } from './about/about.component';
 import { ComingSoonComponent } from './coming-soon/coming-soon.component';
-
+import { SplashComponent } from './splash/splash.component';
+import { QueueService } from './services/queue.service';
 
 @NgModule({
   declarations: [
@@ -52,6 +53,7 @@ import { ComingSoonComponent } from './coming-soon/coming-soon.component';
     ProductCardComponent,
     AboutComponent,
     ComingSoonComponent,
+    SplashComponent
   ],
   imports: [
     BrowserModule,
@@ -62,33 +64,31 @@ import { ComingSoonComponent } from './coming-soon/coming-soon.component';
     CustomFormsModule,
     NgbModule.forRoot(),
     RouterModule.forRoot([
-      {
-        path: '',
-        component: ComingSoonComponent
-      },
       // {
-      //     path: '',
-      //     component: HomeComponent
+      //   path: '',
+      //   component: ComingSoonComponent
       // },
+      {
+          path: '',
+          component: HomeComponent
+      },
       {
         path: 'about',
         component: AboutComponent,
-          // remove later
-        canActivate: [AuthGuard, AdminAuthGuard]
-
       },
       {
         path: 'shop',
-        component: ShopComponent,
-          // remove later
+        component: ShopComponent
+      },
+      {
+        path: 'splash',
+        component: SplashComponent,
         canActivate: [AuthGuard, AdminAuthGuard]
-
       },
       {
         path: 'shopping-cart',
         component: ShoppingCartComponent,
           // remove later
-        canActivate: [AuthGuard, AdminAuthGuard]
       },
       {
         path: 'login',
@@ -98,13 +98,13 @@ import { ComingSoonComponent } from './coming-soon/coming-soon.component';
         path: 'check-out',
         component: CheckOutComponent,
           // remove adminguard later
-        canActivate: [AuthGuard, AdminAuthGuard]
+        canActivate: [AuthGuard]
       },
       {
         path: 'order-success',
         component: OrderSuccessComponent,
           // remove adminguard later
-        canActivate: [AuthGuard, AdminAuthGuard]
+        canActivate: [AuthGuard]
       },
       {
         path: 'my/orders',
@@ -141,7 +141,8 @@ import { ComingSoonComponent } from './coming-soon/coming-soon.component';
     AdminAuthGuard,
     CategoryService,
     ShopService,
-    ShoppingCartService
+    ShoppingCartService,
+    QueueService
   ],
   bootstrap: [AppComponent]
 })

@@ -1,6 +1,6 @@
 <div class="flex-container">
   <div class="flex-item">
-    <img class="flex-item" src="../../assets/ctrl+v%20logo.png">
+    <img src="../../assets/ctrl+v%20logo.png">
   </div>
 
   <div *ngIf="auth.afAuth.authState | async; let user; else showLogin" class="home-text">
@@ -8,14 +8,10 @@
     We'll be in touch soon.
   </div>
   <ng-template #showLogin>
-    <label for="btn-light" class="home-text">
-      SOON.
-    </label>
-
     <button class="btn btn-light"
             id="btn-light"
             (click)="login()">
-      SUBSCRIBE
+      SOON.
       <i class="fa text-danger fa-google-plus"></i>
     </button>
   </ng-template>

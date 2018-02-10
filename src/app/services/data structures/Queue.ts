@@ -1,8 +1,7 @@
 import * as util from './util';
 import LinkedList from './LinkedList';
-import Heap from './Heap';
 
-export default class Queue<T> {
+export class Queue<T> {
 
     /**
      * List containing the elements.
@@ -45,8 +44,9 @@ export default class Queue<T> {
      */
     dequeue(): T | undefined {
         if (this.list.size() !== 0) {
-            const el = this.list.first();
-            this.list.removeElementAtIndex(0);
+            const num = this.getRandomInt(0, this.list.size());
+            const el = this.list.elementAtIndex(num);
+            this.list.removeElementAtIndex(num);
             return el;
         }
         return undefined;
@@ -70,6 +70,11 @@ export default class Queue<T> {
     size(): number {
         return this.list.size();
     }
+
+    getRandomInt(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
 
     /**
      * Returns true if this queue contains the specified element.

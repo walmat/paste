@@ -21,7 +21,7 @@ export class TimerService {
 
     constructor() { }
 
-    private createTimeObject(date: Date): Time {
+    public createTimeObject(date: Date): Time {
 
         const now = new Date().getTime();
         const distance = date.getTime() - now;
@@ -34,8 +34,8 @@ export class TimerService {
         return time;
     }
 
-    timer(date: Date): Observable<Time> {
+    timer(): Observable<Time> {
         return Observable.interval(1000)
-            .map(() => this.createTimeObject(date));
+            .map(() => this.createTimeObject(new Date()));
     }
 }

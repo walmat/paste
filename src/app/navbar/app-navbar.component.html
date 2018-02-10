@@ -14,8 +14,6 @@
   <div class="collapse navbar-collapse"
        [ngbCollapse]="isCollapsed"
        id="navbarsExampleDefault">
-    <!-- <ul class="navbar-nav mr-auto">
-    </ul> -->
     <ul class="navbar-nav ml-auto">
       <li class="nav-item"
           placement="bottom">
@@ -27,6 +25,12 @@
           placement="bottom">
         <a class="nav-link" routerLink="/shop">
           shop
+        </a>
+      </li>
+      <li class="nav-item"
+          placement="bottom">
+        <a class="nav-link" routerLink="/splash">
+          splash
         </a>
       </li>
       <li *ngIf="auth.afAuth.authState | async; let user;  else showLogin"

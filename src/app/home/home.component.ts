@@ -35,12 +35,13 @@ class Clock {
     static get() {
         let ap;
         const date = new Date();
+        const mon = date.getMonth() + 1;
         if (date.getHours() > 12) {
             ap = 'PM';
         } else { ap = 'AM'; }
         return [date.getHours() - 12, date.getMinutes(), date.getSeconds()]
             .map(current => current >= 10 ? current : '0' + current).join(':')
-            + ' ' + ap + ' ' +  date.getMonth() + 1 + '/' + date.getDate() + '/' + date.getFullYear();
+            + ap + ' ' + mon + '/' + date.getDate() + '/' + date.getFullYear();
     }
 
     /**
