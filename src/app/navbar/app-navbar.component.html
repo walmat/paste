@@ -1,85 +1,19 @@
-<nav class="navbar navbar-expand-md navbar-light bg-light fixed-top">
-  <a class="navbar-brand"
-     routerLink="/">
-    <img src="../../assets/ctrl+v%20logo.png" style="max-height: 25px;">
-  </a>
-  <button class="navbar-toggler"
-          type="button"
-          (click)="isCollapsed = !isCollapsed"
-          [attr.aria-expanded]="!isCollapsed"
-          aria-controls="collapseExample"
-          aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse"
-       [ngbCollapse]="isCollapsed"
-       id="navbarsExampleDefault">
-    <!-- <ul class="navbar-nav mr-auto">
-    </ul> -->
-    <ul class="navbar-nav ml-auto">
-      <li class="nav-item"
-          placement="bottom">
-        <a class="nav-link" routerLink="/about">
-          about
-        </a>
-      </li>
-      <li class="nav-item"
-          placement="bottom">
-        <a class="nav-link" routerLink="/shop">
-          shop
-        </a>
-      </li>
-      <li *ngIf="auth.afAuth.authState | async; let user;  else showLogin"
-          ngbDropdown
-          placement="bottom-right"
-          class="nav-item">
-        <a class="nav-link dropdown-toggle"
-           href="javascript:"
-           aria-haspopup="true"
-           aria-expanded="false"
-           ngbDropdownToggle
-           id="dropdownBasic1">
-          {{user.displayName}}
-        </a>
-        <div ngbDropdownMenu
-             aria-labelledby="dropdownBasic1">
-          <a class="dropdown-item"
-             routerLink="/my/orders">
-            My Orders
-          </a>
-          <a class="dropdown-item"
-             *ngIf="isAdmin | async"
-             routerLink="admin/orders">
-            Manage Orders
-          </a>
-          <a class="dropdown-item"
-             *ngIf="isAdmin | async"
-             routerLink="admin/shop">
-            Manage Products
-          </a>
-          <a class="dropdown-item"
-             href="javascript:;"
-             (click)="logout()">
-            Log Out
-          </a>
-        </div>
-      </li>
-      <li class="nav-item" style="padding-left: 10%;"
-          placement="bottom">
-        <a class="nav-link"
-           routerLink="/shopping-cart">
-          <i class="fa fa-shopping-cart"></i>
-        </a>
-      </li>
-      <ng-template #showLogin>
-        <li class="nav-item">
-          <a class="nav-link"
-             routerLink="/login">
-            <i class="fa fa-sign-in"></i>
-            Login
-          </a>
-        </li>
-      </ng-template>
-    </ul>
+<nav class="navbar navbar-inverse navbar-fixed-left" id="navbar">
+  <div class="container">
+    <div class="navbar-header" style="top: 2%; position: absolute;">
+      <a class="navbar-brand" href="/">L-SAP</a>
+
+      <select id="version" [(ngModel)]="version" (ngModelChange)="updateVersion(version)" required>
+        <option *ngFor="let v of versions">{{ v }}</option>
+      </select>
+    </div>
+    <div class="col">
+      <div class="input-group mb-3 mr-0 ml-0">
+        <input id='search' type="text" class="form-control" placeholder="Search" aria-label="Username" aria-describedby="basic-addon1" (input)="search($event)"
+               ng-model="values">
+      </div>
+      <app-filter [filter]="filter"></app-filter>
+    </div>
   </div>
 </nav>
+<app-links-component [searchTerm]="searchTerm" [version]="version"></app-links-component>

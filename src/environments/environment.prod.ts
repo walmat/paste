@@ -1,11 +1,11 @@
 export const environment = {
-  production: false,
-  firebase: {
-    apiKey: 'AIzaSyAsx1bdloW9HwnHUZIOsqCzPU0Onz-PquU',
-    authDomain: 'paste-db.firebaseapp.com',
-    databaseURL: 'https://paste-db.firebaseio.com',
-    projectId: 'paste-db',
-    storageBucket: '',
-    messagingSenderId: '489762050414'
-  }
+    production: true,
+    firebase: {
+        apiKey: 'AIzaSyAcU9PvR60tAl95-Alyq-aiDKfhdIkEppU',
+        authDomain: 'lsap-api.firebaseapp.com',
+        databaseURL: 'https://lsap-api.firebaseio.com',
+        projectId: 'lsap-api',
+        storageBucket: 'lsap-api.appspot.com',
+        messagingSenderId: '1002563326729'
+    }
 };
